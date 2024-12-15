@@ -1,26 +1,24 @@
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", displaySearchInput);
-
 //API
-let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
 
 function showCityDegree(response) {
-  let temp = document.querySelector("#current-temp");
-  temp.innerHTML = Math.round(response.data.temperature.current);
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = response.data.city;
 }
 
 //Display Search Input
-function displaySearchInput(event) {
+function SearchCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
-  let currentCity = document.querySelector("#current-city");
-  currentCity.innerHTML = searchInput.value;
-
   let city = searchInput.value;
+
+  let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKEY}&units=metric`;
   axios.get(apiURL).then(showCityDegree);
 }
-
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", SearchCity);
 //Current Date
 function formatDate(date) {
   let day = date.getDay();
