@@ -19,6 +19,10 @@ function refreshWeather(response) {
 
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = response.data.wind.speed;
+
+  let date = new Date(response.data.time * 1000);
+  let timeElement = document.querySelector("#current-time");
+  timeElement.innerHTML = formatDate(date);
 }
 
 //API
@@ -67,8 +71,3 @@ function formatDate(date) {
   let dayName = weekDay[day];
   return `${dayName} ${hour}:${min}`;
 }
-
-let currentDateSentence = document.querySelector("#current-date");
-let currentDate = new Date();
-
-currentDateSentence.innerHTML = formatDate(currentDate);
