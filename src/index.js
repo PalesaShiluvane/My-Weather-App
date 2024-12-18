@@ -10,10 +10,6 @@ function refreshWeather(response) {
   let descriptionElement = document.querySelector("#current-description");
   descriptionElement.innerHTML = response.data.condition.description;
 
-  let iconElement = document.querySelector(".current-temperature-icon");
-  iconElement.setAttribute("src", response.data.condition.icon_url);
-  iconElement.setAttribute("alt", response.data.condition.description);
-
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
 
@@ -23,9 +19,11 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   let timeElement = document.querySelector("#current-time");
   timeElement.innerHTML = formatDate(date);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `<img src="${response.condition.icon_url}" class="current-temperature-icon"`;
 }
 
-//API
 function searchCity(city) {
   let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKEY}&units=metric`;

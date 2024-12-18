@@ -33,16 +33,20 @@
           <div>
             <h1 class="current-city" id="current-city"></h1>
             <p class="current-details">
-              <span id="current-date">Monday</span><span id="current-time">00:00</span>, <span id="current-description">moderate rain</span> </br>
+              <span id="current-date"></span><span id="current-time"></span>, <span id="current-description">moderate rain</span> </br>
               Humidity: <strong id="humidity">87</strong>%, Wind: <strong id="wind">7.2</strong>km/h
             </p>
           </div>
           <div class="current-temperature">
+            <div id="icon">
+              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png" 
+            class="current-temperature-icon">
+            </div>
             
-
-            <span class="current-temperature-icon"><img class="current-temperature-icon" alt="Weather Icon"></span
+            
             ><span class="current-temperature-value" id="current-temp"></span
             ><span class="current-temperature-unit">°C</span>
+
           </div>
         </div>
       </main>
