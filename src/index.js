@@ -11,7 +11,8 @@ function refreshWeather(response) {
   descriptionElement.innerHTML = response.data.condition.description;
 
   let iconElement = document.querySelector(".current-temperature-icon");
-  iconElement.innerHTML = response.data.condition.icon_url;
+  iconElement.setAttribute("src", response.data.condition.icon_url);
+  iconElement.setAttribute("alt", response.data.condition.description);
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
