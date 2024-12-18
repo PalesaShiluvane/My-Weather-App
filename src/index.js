@@ -1,11 +1,13 @@
 function refreshWeather(response) {
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = response.data.city;
+
   let temperatureElement = document.querySelector("#current-temp");
   let temperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(temperature);
 }
 
 //API
-
 function searchCity(city) {
   let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKEY}&units=metric`;
@@ -13,12 +15,11 @@ function searchCity(city) {
   axios.get(apiURL).then(refreshWeather);
 }
 
-//Display Search Input as City
+//Handle Search Input Submit button
 function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
-  let cityElement = document.querySelector("#current-city");
-  cityElement.innerHTML = searchInput.value;
+
   searchCity(searchInput.value);
 }
 let searchFormElement = document.querySelector("#search-form");
