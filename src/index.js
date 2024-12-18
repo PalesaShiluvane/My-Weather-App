@@ -1,4 +1,5 @@
 function refreshWeather(response) {
+  console.log(response.data);
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = response.data.city;
 
@@ -14,7 +15,6 @@ function searchCity(city) {
 
   axios.get(apiURL).then(refreshWeather);
 }
-searchCity("Tzaneen");
 
 //Handle Search Input Submit button
 function handleSearchSubmit(event) {
@@ -25,6 +25,8 @@ function handleSearchSubmit(event) {
 }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Tzaneen");
 
 //Current Date
 function formatDate(date) {
