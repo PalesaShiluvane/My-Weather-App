@@ -6,6 +6,18 @@ function refreshWeather(response) {
   let temperatureElement = document.querySelector("#current-temp");
   let temperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  let descriptionElement = document.querySelector("#current-description");
+  descriptionElement.innerHTML = response.data.condition.description;
+
+  let iconElement = document.querySelector(".current-temperature-icon");
+  iconElement.innerHTML = response.data.condition.icon_url;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.temperature.humidity;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = response.data.wind.speed;
 }
 
 //API
