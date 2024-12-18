@@ -1,3 +1,4 @@
+searchCity("Tzaneen");
 function refreshWeather(response) {
   console.log(response.data);
   let cityElement = document.querySelector("#current-city");
@@ -11,17 +12,20 @@ function refreshWeather(response) {
   descriptionElement.innerHTML = response.data.condition.description;
 
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.temperature.humidity;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 
   let windElement = document.querySelector("#wind");
-  windElement.innerHTML = response.data.wind.speed;
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
 
   let date = new Date(response.data.time * 1000);
-  let timeElement = document.querySelector("#current-time");
-  timeElement.innerHTML = formatDate(date);
+  let timeElement = document.querySelector("#current-date");
+  timeElement.innerHTML = `${formatDate(date)},`;
 
   let iconElement = document.querySelector("#icon");
-  iconElement.innerHTML = `<img src="${response.condition.icon_url}" class="current-temperature-icon"`;
+  iconElement.innerHTML = `<img
+      src="${response.data.condition.icon_url}"
+      class="current-temperature-icon"
+    />`;
 }
 
 function searchCity(city) {
@@ -40,8 +44,6 @@ function handleSearchSubmit(event) {
 }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
-
-searchCity("Tzaneen");
 
 //Current Date
 function formatDate(date) {
