@@ -14,6 +14,7 @@ function searchCity(city) {
 
   axios.get(apiURL).then(refreshWeather);
 }
+searchCity("Tzaneen");
 
 //Handle Search Input Submit button
 function handleSearchSubmit(event) {
