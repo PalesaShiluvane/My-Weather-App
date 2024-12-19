@@ -96,3 +96,19 @@ footer {
 
   color: rgba(39, 33, 66, 0.4);
 }
+
+.forecast-day {
+  text-align: center;
+}
+.forecast-icon {
+  text-align: center;
+}
+.forecast-temperatures {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.forecast-temp {
+  padding: 0 10px;
+}
