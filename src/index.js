@@ -74,7 +74,7 @@ function formatDate(date) {
   return `${dayName} ${hour}:${min}`;
 }
 function displayForecast(response) {
-  let forecastHTML = "";
+  let forecastHtml = "";
 
   response.data.daily.forEach(function (day, index) {
     if (index < 5) {
@@ -100,8 +100,7 @@ function displayForecast(response) {
 }
 
 let forcastElement = document.querySelector("#forecast");
-forcastElement.innerHTML = forecastHTML;
-displayForecast();
+forcastElement.innerHTML = forecastHtml;
 
 function getForecast(city) {
   let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
