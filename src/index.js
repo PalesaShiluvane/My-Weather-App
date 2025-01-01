@@ -97,10 +97,9 @@ function displayForecast(response) {
           </div>`;
     }
   });
+  let forcastElement = document.querySelector("#forecast");
+  forcastElement.innerHTML = forecastHtml;
 }
-
-let forcastElement = document.querySelector("#forecast");
-forcastElement.innerHTML = forecastHtml;
 
 function getForecast(city) {
   let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
