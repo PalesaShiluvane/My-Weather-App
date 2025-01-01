@@ -73,6 +73,7 @@ function formatDate(date) {
   let dayName = weekDay[day];
   return `${dayName} ${hour}:${min}`;
 }
+
 function displayForecast(response) {
   let forecastHtml = "";
 
@@ -103,7 +104,7 @@ function displayForecast(response) {
 
 function getForecast(city) {
   let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
-  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query={city}&key={apiKEY}&units=metric`;
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKEY}&units=metric`;
   axios(apiURL).then(displayForecast);
   console.log(apiURL);
 }
