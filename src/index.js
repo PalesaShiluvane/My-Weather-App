@@ -26,6 +26,8 @@ function refreshWeather(response) {
       src="${response.data.condition.icon_url}"
       class="current-temperature-icon"
     />`;
+
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -70,4 +72,38 @@ function formatDate(date) {
   ];
   let dayName = weekDay[day];
   return `${dayName} ${hour}:${min}`;
+}
+function displayForecast(response) {
+  let forecastHTML = "";
+
+  response.data.daily.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="weather-forecast-day">
+          <div class="forecast-date">${day}</div>
+          <div>
+          <img src="${day.condition.icon_url}" class="forecast-icon"/> 
+           </div>
+          <div class="forecast-temperatures">
+             <div class="forecast-temp">
+              <strong> ${Math.round(day.temperature.maximum)}</strong>
+             </div>
+             <div class="forecast-temp"> ${Math.round(
+               day.temperature.minimum
+             )}</div>
+          </div>
+          </div>`;
+  });
+}
+
+let forcastElement = document.querySelector("#forecast");
+forcastElement.innerHTML = forecastHTML;
+displayForecast();
+
+function getForecast(city) {
+  let apiKEY = `90837b7722d3o37ab2424dfa2715bt14`;
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query={city}&key={apiKEY}&units=metric`;
+  axios(apiURL).then(displayForecast);
+  console.log(apiURL);
 }
