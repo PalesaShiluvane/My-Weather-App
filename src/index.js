@@ -89,11 +89,11 @@ function displayForecast(response) {
            </div>
           <div class="forecast-temperatures">
              <div class="forecast-temp">
-              <strong> ${Math.round(day.temperature.maximum)}</strong>
+              <strong> ${Math.round(day.temperature.maximum)}${"°"}</strong>
              </div>
              <div class="forecast-temp"> ${Math.round(
                day.temperature.minimum
-             )}</div>
+             )}${"°"}</div>
           </div>
           </div>`;
     }
