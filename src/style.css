@@ -1,6 +1,8 @@
 body {
-  background: #528ab4;
-  font-family: "Roboto", sans-serif;
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/153/856/original/mountains_blue.jpg?1735811578");
+  background-size: cover; /* This ensures the image covers the entire background */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  background-position: center center; /* Centers the image in the background */
 }
 
 a {
